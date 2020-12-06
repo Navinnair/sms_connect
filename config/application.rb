@@ -31,5 +31,12 @@ module SmsConnect
     # Middleware like session, flash, cookies can be added back manually.
     # Skip views, helpers and assets when generating a new resource.
     config.api_only = true
+
+    # enable redis caching
+    if ENV['RAILS_ENV'].present?
+      config.action_controller.perform_caching = true
+      config.cache_store = :redis_cache_store
+    end
+
   end
 end

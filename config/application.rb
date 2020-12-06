@@ -32,6 +32,10 @@ module SmsConnect
     # Skip views, helpers and assets when generating a new resource.
     config.api_only = true
 
+    config.autoload_paths << Rails.root.join("lib/sms_connect")
+
+    require 'sms_connect'
+
     # enable redis caching
     if ENV['RAILS_ENV'].present?
       config.action_controller.perform_caching = true

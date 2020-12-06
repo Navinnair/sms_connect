@@ -7,6 +7,7 @@ class ApplicationController < ActionController::API
   # Authenticate using the username and auth_id
   def authenticate
     @current_user = Account.authenticate_user(request.authorization)
+    SmsConnect.present_user = @current_user
   end
 
   def handle_error (exception)

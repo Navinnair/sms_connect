@@ -15,4 +15,10 @@ class Account < ApplicationRecord
       user
     end
   end
+
+  # check number exists in the phone numbers
+  def to_param_records(phone_number)
+    phone_numbers.find_by(number: phone_number)
+  end
+
 end

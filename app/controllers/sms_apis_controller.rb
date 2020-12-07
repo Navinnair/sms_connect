@@ -2,7 +2,7 @@ class SmsApisController < ApplicationController
   before_action :set_and_validate_sms
 
   def inbound
-
+    render_json(200, '', 'inbound sms ok') if @sms.process_inbound
   end
 
   def outbound
@@ -21,8 +21,7 @@ class SmsApisController < ApplicationController
 
   # validate params for the sms service
   def set_and_validate_sms
-    validate = sms_service.validate_params
-    render_json(422, validate[1]) and return unless validate[0].present?
+    sms_service.validate_params
   end
 
 end

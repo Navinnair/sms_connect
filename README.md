@@ -3,14 +3,15 @@
 ## Requirements
 
  * Ruby 2.5.7
- * redis
+ * Postgresql
+ * Redis
     - Install redis
     ```sh
-        $ sudo apt-get install redis-server
+     sudo apt install redis-server
     ```
     - Start redis server:
     ```sh
-     $ redis-server
+     redis-server
     ```
  * auzmor_api psql dump
 
@@ -47,7 +48,7 @@ rails s
 ## Sample requests
 ### inbound
 ```sh
-curl --location --request POST 'localhost:3000/inbound/sms' \
+curl --location --request POST 'http://13.126.85.252/inbound/sms' \
 --header 'Authorization: Basic YXpyNTo2RExIOEEyNVha' \
 --form 'from=3234456667' \
 --form 'text=STOP' \
@@ -56,7 +57,7 @@ curl --location --request POST 'localhost:3000/inbound/sms' \
 
 ### outbound
 ```sh
-curl --location --request POST 'localhost:3000/outbound/sms' \
+curl --location --request POST 'http://13.126.85.252/outbound/sms' \
 --header 'Authorization: Basic YXpyNTo2RExIOEEyNVha' \
 --form 'from=61871112940' \
 --form 'to=21323453221' \

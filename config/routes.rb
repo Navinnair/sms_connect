@@ -1,3 +1,6 @@
 Rails.application.routes.draw do
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+  # resources :sms_apis
+  root to: proc { [405, {}, ['']] }
+  post '/inbound/sms', to: 'sms_apis#inbound', as: 'inbound_sms'
+  post '/outbound/sms', to: 'sms_apis#outbound', as: 'outbound_sms'
 end

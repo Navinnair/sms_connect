@@ -84,7 +84,7 @@ class SmsService
     cache_key = "limit_counter_for_#{@from}"
     Rails.cache.write(cache_key, 1, raw: true, unless_exist: true, expires_in: 24.hours)
     count = Rails.cache.read(cache_key)
-    if count.to_i > 3
+    if count.to_i > 50
       raise SmsConnect::ApiError, "limit reached for from #{@from}"
     end
     Rails.cache.increment(cache_key, 1)

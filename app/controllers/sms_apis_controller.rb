@@ -6,7 +6,7 @@ class SmsApisController < ApplicationController
   end
 
   def outbound
-
+    render_json(200, '', 'outbound sms ok') if @sms.process_outbound
   end
 
   private
